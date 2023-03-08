@@ -1,0 +1,53 @@
+.navbar-brand > h1 {
+    margin: 0px;
+    font-size: 30px;
+    color: #fff;
+}
+.service-detail {
+    letter-spacing: 0;
+    line-height: 1.8;
+    font-weight: normal;
+    font-size: 13px;
+    text-transform: none;
+}
+.gallery-items {
+    margin-bottom: 5px !important;
+}
+.gallery-image :hover {
+    border: solid 1.5px;
+}
+.gallery-linl {
+    letter-spacing: 0;
+    line-height: 1.8;
+    font-weight: normal;
+    font-size: 13px;
+    text-transform: none;
+    text-align: center;
+}
+.contact-h3 {
+    margin-top: 2px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0px;
+}
+.contact-h4 {
+    line-height: 21px;
+    letter-spacing: 0px;
+    font-size: 11px;
+    color: #3601c6;
+    text-transform: none !important;
+}
+.text-taille-40 {
+    font-size: 40px;
+}
+.text-taille-18 {
+    font-size: 18px !important;
+}
+.text-gras {
+    font-weight: bold;
+}
+.color-7b7575 {
+    color: #7b7575 !important;
+}

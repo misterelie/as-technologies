@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="fr">
+
+
+<!-- Mirrored from ngomory.ci/api/ip by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Jan 2023 09:24:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+    
+    <meta charset="utf-8">
+    <meta name="language" content="fr,fr-fr">
+    <title>Ngomory :: IP - Geolocation</title>
+    <meta name="description" content="IP – Geolocation est un API permettant de géolocaliser une adresse IP ou un nom de domaine avec le maximum d’infos.">
+    <meta name="author" content="Touré Ngomory">
+    <link rel="canonical" href="ip.html" />
+    <meta name="robots" content="index,follow,all">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ngomory :: IP - Geolocation">
+    <meta property="og:site_name" content="Touré Ngomory">
+    <meta property="og:url" content="ip.html">
+    <meta property="og:description" content="IP – Geolocation est un API permettant de géolocaliser une adresse IP ou un nom de domaine avec le maximum d’infos.">
+    <meta property="og:image" content="">
+    <meta property="og:locale" content="fr_FR">
+
+    
+    <link rel="shortcut icon" href="../file/image/favicon/ngomory.webp" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../file/image/favicon/ngomory.webp">
+
+    
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <link rel="stylesheet" href="../../stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../cdn.jsdelivr.net/npm/%40mdi/font%404.7.95/css/materialdesignicons.min.css">
+
+    <style>
+        .text-orange {
+            color: #e15f41 !important;
+        }
+
+        .bg-orange {
+            background-color: #e15f41 !important;
+        }
+
+        .bg-noire {
+            background-color: #232323 !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../../unpkg.com/leaflet%401.6.0/dist/leaflet.css" />
+</head>
+
+<body>
+
+    <h1 class="d-none">Ngomory :: IP - Geolocation</h1>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow p-3">
+        <a class="navbar-brand font-weight-bold text-orange text-uppercase" href="../api.html">
+            Touré Ngomory
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="../index.html">| Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="../blog.html">| Mon blog</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        | Mon compte
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="ip.html">
+                            <i class="mdi mdi-account"></i>
+                            S'inscrire
+                        </a>
+                        <a class="dropdown-item" href="ip.html">
+                            <i class="mdi mdi-lock"></i>
+                            Mot de passe
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="ip.html">
+                            <i class="mdi mdi-login"></i>
+                            Connexion
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link font-weight-bold" href="../index.html#contact">| Contact</a>
+                </li>
+            </ul>
+            <form action="http://ngomory.ci/api" class="form-inline my-2 my-lg-0">
+                <div class="row">
+                    <div class="col-md-8">
+                        <input name="key" class="form-control mr-sm-2" type="search" placeholder="Recherche ..."
+                            aria-label="Search" value="">
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary my-2 my-sm-0 w-100" type="submit">
+                            <i class="mdi mdi-magnify"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+</div>
+    <div class="container">
+
+    <div class="alert alert-info mt-4 text-center">
+        <h1>
+            <i class="mdi mdi-map-marker-radius"></i>
+            IP - Geolocation
+        </h1>
+    </div>
+
+    <p class="text-center font-weight-bold">
+        IP – Geolocation est un API permettant de géolocaliser une adresse IP ou un nom de domaine avec le maximum d’infos.
+    </p>
+
+    <div class="font-weight-bold text-danger text-center">
+        <i class="mdi mdi-bell"></i>
+        Attention : Le service est gratuit avec un quota de 1 requête chaque 3 secondes et 1000 requêtes par jour
+    </div>
+
+    <hr>
+
+    <div class="row mt-4">
+        <div class="col-md-12 text-center">
+            Parametre IP - Geolocation :
+        </div>
+        <div class="col-md-12">
+            <form action="#result" id="form">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Paramètre</th>
+                            <th>Fonction</th>
+                            <th>Priorité</th>
+                            <th>Valeurs</th>
+                            <th>Défaut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" checked disabled>
+                                </div>
+                            </td>
+                            <td>ip</td>
+                            <td>Adresse IP ou domaine</td>
+                            <td class="text-danger">Obligatoire</td>
+                            <td>
+                                <input name="ip" id="ip" type="text" class="form-control font-weight-bold"
+                                    value="160.154.152.191" placeholder="Ex : Adresse IP ou domaine ..." required>
+                            </td>
+                            <td>IP machine</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group form-check">
+                                    <input id="lang_check" type="checkbox" class="form-check-input">
+                                </div>
+                            </td>
+                            <td>lang</td>
+                            <td>Langue d'affichage [en, fr]</td>
+                            <td>Facultatif</td>
+                            <td>
+                                <select name="lang" class="form-control" id="lang">
+                                    <option value="en">en</option>
+                                    <option value="fr">fr</option>
+                                </select>
+                            </td>
+                            <td>en</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="text-center alert alert-secondary" data-error="" style="overflow-x: scroll;">
+                    <a href="#" target="_blank" class="" id="baseUrl"></a>
+                </div>
+
+                <div class="text-center" id="result">
+                    <button type="submit" class="btn bg-orange btn-lg text-white">Check informations</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row" id="resultats" style="display: none">
+        <div class="col-md-10 offset-md-1">
+            <div class="card mt-5">
+                <h5 class="card-header bg-success">Résultats</h5>
+                <div class="card-body" id="resultats_body"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+    <div class="text-center p-5 bg-noire text-white mt-5">
+    © 2020 Tous droits réservés
+    <a href="../index.html" class="text-orange">Touré Ngomory</a>
+    (+225) 07 97 16 29
+</div>
+    <script src="../../code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../../cdn.jsdelivr.net/npm/popper.js%401.16.0/dist/umd/popper.min.js"></script>
+    <script src="../../stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="../../unpkg.com/leaflet%401.6.0/dist/leaflet.js"></script>
+<script>
+    var baseUrl = 'https://www.ngomory.ci/api/ip/json/';
+
+    function UrlJson(baseUrl) { 
+
+        var baseUrl = baseUrl + $('#ip').val();
+        
+        if( $('#lang_check').prop("checked") == true){
+            var baseUrl = baseUrl + '?lang=' + $('#lang').val();
+        }
+
+        $('#baseUrl').text(baseUrl).attr('href', baseUrl);
+    }
+    UrlJson(baseUrl);
+
+    $('#ip').keyup(function (e) { 
+        UrlJson(baseUrl);
+    });
+
+    $('#form').change(function (e) { 
+        e.preventDefault();
+        UrlJson(baseUrl);
+    });
+
+    $('#form').submit(function (e) { 
+        e.preventDefault();
+        $('#resultats_body').html('<img src="../file/image/loader.gif"/>');
+        $('#resultats').show();
+        $.ajax({
+            type: "GET",
+            url: $('#baseUrl').text(),
+            data: null, 
+            dataType: "json",
+            success: function (response) {
+                $('#resultats_body').html('');
+                if (response.success == true) { 
+                    $('#resultats_body').append(`
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="row">
+                                <div class="col-4">Query :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.query+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">IP address :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.ip+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Continent :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.continent+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Country :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.country+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">City :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.city+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">District :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.district+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Zip :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.zip+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Latitude :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.lat+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Longitude :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.lon+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Timezone :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.timezone+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Isp :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.isp+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Org:</div>
+                                <div class="col-8 font-weight-bold">`+response.result.org+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">As :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.as+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Asname :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.asname+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Reverse :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.reverse+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Proxy :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.proxy+`</div>
+                                <div class="col-12"><hr class="m-0"></div>
+                                <div class="col-4">Hosting :</div>
+                                <div class="col-8 font-weight-bold">`+response.result.hosting+`</div>
+                            </div>
+                        </div>
+                        <div class="col-md-5" id="mapid"></div>
+                    </div>
+                    `);
+
+                    var map = L.map('mapid', {center: [response.result.lat, response.result.lon],zoom: 13});
+
+                }
+                if (response.success == false) {
+                    $.each(response.errors, function (index, value) { 
+                        $('#baseUrl').data('errors', "[" + index + "] " + value);
+                    });
+                    $.each(response.messages, function (index, value) { 
+                        $('#baseUrl').data('messages', "[Msg] " + value);
+                    });
+                    $('#resultats_body').append(`
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Oups ! </strong> Une erreur s'est produite. <br>
+                            ` + $('#baseUrl').data('errors') +` <br>
+                            ` + $('#baseUrl').data('messages') +` <br>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    `);
+                }
+            }
+        });
+    });
+</script>
+</body>
+
+
+<!-- Mirrored from ngomory.ci/api/ip by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 27 Jan 2023 09:24:57 GMT -->
+</html>
