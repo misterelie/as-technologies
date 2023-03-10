@@ -31,18 +31,24 @@
                         class="logo-sm"></span><span>
                     <h5 class="mb-2" style="color: #ffff; font-weight: bold">AS TECHNOLOGIES</h5>
                     <img span></a>
-        </div>
+        </div> <br>
         <!--end logo-->
         <div class="menu-content h-100" data-simplebar>
+            
             <ul class="metismenu left-sidenav-menu">
-                {{-- <li class="menu-label mt-0">Main</li> --}}
-                <li><a href="javascript: void(0);"><i data-feather="home"
+
+                <li><a href="{{route('dashboard')}}"><i data-feather="home"
+                            class="align-self-center menu-icon"></i><span>Accueil</span><span
+                            class="menu-arrow"></i></span>
+                    </a>
+                </li>
+                
+                <li><a href="javascript: void(0);"><i data-feather="grid"
                             class="align-self-center menu-icon"></i><span>Pages</span><span class="menu-arrow"><i
-                                class="mdi mdi-chevron-right"></i></span></a>
+                                class="mdi mdi-chevron-right"></i></span>
+                        </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li class="nav-item"><a class="nav-link"
-                                href="{{ route('admin.service.index') }}"><i
-                                    class="ti-control-record"></i>Services</a></li>
+
                         <li class="nav-item"><a class="nav-link"
                                 href="{{ route('admin.service.index') }} "><i
                                     class="ti-control-record"></i>Réalisations</a></li>
@@ -52,62 +58,99 @@
                         </li>
 
                         <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.about.index') }}"><i
+                                    class="ti-control-record"></i>Présentation</a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.devis.demande_devis') }}"><i
+                                    class="ti-control-record"></i>Demande Devis</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li><a href="javascript: void(0);"><i data-feather="grid"
+                            class="align-self-center menu-icon"></i><span>Produits</span><span class="menu-arrow"><i
+                                class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ url('liste/produits') }}"><i
+                                    class="ti-control-record"></i>Gestion
+                                produits</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ url('liste/marques') }}"><i
+                                    class="ti-control-record"></i>Gestion
+                                marques</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ url('liste/categories') }}"><i
+                                    class="ti-control-record"></i>Gestion catégories</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="javascript: void(0);"><i data-feather="grid"
+                            class="align-self-center menu-icon"></i><span>Services</span><span class="menu-arrow"><i
+                                class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.service.index') }}"><i
+                                    class="ti-control-record"></i>gestion services</a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.devis.specificite') }} "><i
+                                    class="ti-control-record"></i>Spécificité service</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="javascript: void(0);"><i data-feather="grid"
+                            class="align-self-center menu-icon"></i><span>Contacts</span><span class="menu-arrow"><i
+                                class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li class="nav-item"><a class="nav-link"
                                 href="{{ route('admin.contact.index') }}"><i
                                     class="ti-control-record"></i>Nos Contacts</a>
                         </li>
-                <li class="nav-item"><a class="nav-link"
-                        href="{{ route('admin.banniere.add_banniere') }}"><i
-                            class="ti-control-record"></i>Bannière</a>
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.messages.all_message') }}"><i
+                                    class="ti-control-record"></i>Messages contacts</a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('admin.about.index') }}"><i
-                            class="ti-control-record"></i>Présentation</a>
-                </li>
-                <li class="nav-item"><a class="nav-link"
-                        href="{{ route('admin.projet.add_project') }}"><i
-                            class="ti-control-record"></i>Projets</a>
-                </li>
-                <li class="nav-item"><a class="nav-link"
-                        href="{{ route('admin.devis.demande_devis') }}"><i
-                            class="ti-control-record"></i>Demande Devis</a>
-                </li>
-                <li class="nav-item"><a class="nav-link"
-                        href="{{ route('admin.devis.specificite') }} "><i
-                            class="ti-control-record"></i>Spécificités services</a>
-                </li>
-            </ul>
-            </li>
 
-            <li><a href="javascript: void(0);"><i data-feather="grid"
-                        class="align-self-center menu-icon"></i><span>Produits</span><span class="menu-arrow"><i
-                            class="mdi mdi-chevron-right"></i></span></a>
-                <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('liste/produits') }}"><i class="ti-control-record"></i>Gestion
-                            produits</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('liste/marques') }}"><i class="ti-control-record"></i>Gestion
-                            marques</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('liste/categories') }}"><i class="ti-control-record"></i>Gestion
-                            catégories</a>
-                    </li>
-                </ul>
-            </li>
+                <li><a href="javascript: void(0);"><i data-feather="lock"
+                            class="align-self-center menu-icon"></i><span>Paramètres</span><span class="menu-arrow"><i
+                                class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.banniere.add_banniere') }}"><i
+                                    class="ti-control-record"></i>Bannières</a>
+                        </li>
 
-            <li><a href="javascript: void(0);"><i data-feather="lock"
-                        class="align-self-center menu-icon"></i><span>Paremètres</span><span class="menu-arrow"><i
-                            class="mdi mdi-chevron-right"></i></span></a>
-                <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="auth-login.html"><i
-                                class="ti-control-record"></i></a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.projet.add_project') }}"><i
+                                    class="ti-control-record"></i>Projets</a>
+                        </li>
 
-                </ul>
-            </li>
-            <hr class="hr-dashed hr-menu">
-            {{-- <li class="menu-label my-2">Autres</li> --}}
-            {{-- <li><a href="javascript: void(0);"><i data-feather="box"
+                        <li class="nav-item"><a class="nav-link" href="{{ url('utilisateurs') }}"><i
+                                    class="ti-control-record"></i>Gestion utilisateurs</a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="{{ route('profile.edit') }}"><i
+                                    class="ti-control-record"></i>Mon profil</a>
+                        </li>
+                    </ul>
+                </li>
+                <hr class="hr-dashed hr-menu">
+                {{-- <li class="menu-label my-2">Autres</li> --}}
+                {{-- <li><a href="javascript: void(0);"><i data-feather="box"
                             class="align-self-center menu-icon"></i><span>UI Kit</span><span class="menu-arrow"><i
                                 class="mdi mdi-chevron-right"></i></span></a> --}}
-            {{-- <ul class="nav-second-level" aria-expanded="false">
+                {{-- <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="javascript: void(0);"><i class="ti-control-record"></i>UI Elements <span
                                     class="menu-arrow left-has-menu"><i class="mdi mdi-chevron-right"></i></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
@@ -211,12 +254,12 @@
                             </ul>
                         </li>
                     </ul> --}}
-            </li>
-            {{--                 
+                </li>
+                {{--                 
                 <li><a href="javascript: void(0);"><i data-feather="file-plus"
                             class="align-self-center menu-icon"></i><span>Pages</span><span class="menu-arrow"><i
                                 class="mdi mdi-chevron-right"></i></span></a> --}}
-            {{-- <ul class="nav-second-level" aria-expanded="false">
+                {{-- <ul class="nav-second-level" aria-expanded="false">
                         <li class="nav-item"><a class="nav-link" href="pages-blogs.html"><i
                                     class="ti-control-record"></i>Blogs</a></li>
                         <li class="nav-item"><a class="nav-link" href="pages-faqs.html"><i
@@ -232,7 +275,7 @@
                         <li class="nav-item"><a class="nav-link" href="pages-treeview.html"><i
                                     class="ti-control-record"></i>Treeview</a></li>
                     </ul> --}}
-            </li>
+                </li>
             </ul>
 
         </div>
@@ -244,7 +287,7 @@
             <!-- Navbar -->
             <nav class="navbar-custom">
                 <ul class="list-unstyled topbar-nav float-right mb-0">
-                    <li class="dropdown hide-phone"><a
+                    {{-- <li class="dropdown hide-phone"><a
                             class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown"
                             href="#" role="button" aria-haspopup="false" aria-expanded="false"><i data-feather="search"
                                 class="topbar-icon"></i></a>
@@ -256,8 +299,8 @@
                                         type="submit"><i class="ti-search"></i></button></form>
                             </div>
                         </div>
-                    </li>
-                    <li class="dropdown notification-list"><a
+                    </li> --}}
+                    {{-- <li class="dropdown notification-list"><a
                             class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown"
                             href="#" role="button" aria-haspopup="false" aria-expanded="false"><i data-feather="bell"
                                 class="align-self-center topbar-icon"></i> <span
@@ -344,15 +387,24 @@
                                 class="dropdown-item text-center text-primary">View all <i
                                     class="fi-arrow-right"></i></a>
                         </div>
-                    </li>
+                    </li> --}}
                     <li class="dropdown"><a class="nav-link dropdown-toggle waves-effect waves-light nav-user"
                             data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                             aria-expanded="false"><span class="ml-1 nav-user-name hidden-sm">
 
+                                <!-- Recuperer le nom de l'utilisateur connecté -->
+                                {{ Auth::user()->name }}</span>
+
                                 <!-- AFFICHER PHOTO DE L'UTILSATEUR QUAND IL A  CHOISI -->
-                                {{ Auth::user()->name }}</span> <img
-                                src="{{ asset('admin/assets/images/users/user-5.jpg') }}"
-                                alt="profile-user" class="rounded-circle"></a>
+                                @if(Auth::user()->photo != null)
+                                    <img src="{{ asset('UsersImage/'.Auth::user()->photo) }}"
+                                        alt="profile-user" class="rounded-circle">
+                                @else
+                                    <!--SINON AFFICHER L'IMAGE PAR DEFAUT -->
+                                    <img src="{{ asset('admin/assets/images/users/user-5.jpg') }}"
+                                        alt="profile-user" class="rounded-circle"></a>
+                                @endif
+
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
                                 href="{{ route('profile.edit') }}"><i data-feather="user"
                                     class="align-self-center icon-xs icon-dual mr-1"></i>
@@ -378,10 +430,6 @@
                 <ul class="list-unstyled topbar-nav mb-0">
                     <li><button class="nav-link button-menu-mobile"><i data-feather="menu"
                                 class="align-self-center topbar-icon"></i></button></li>
-                    <li class="creat-btn">
-                        <div class="nav-link"><a class="btn btn-sm btn-soft-primary" href="#" role="button"><i
-                                    class="fas fa-plus mr-2"></i>New Task</a></div>
-                    </li>
                 </ul>
             </nav>
             <!-- end navbar-->
@@ -395,7 +443,7 @@
                         <div class="page-title-box">
                             <div class="row">
                                 <div class="col">
-                                    <h4 class="page-title">CRM</h4>
+                                    <h4 class="page-title">STATISTIQUES</h4>
                                     <ol class="breadcrumb">
 
                                         <li class="breadcrumb-item active"></li>
@@ -420,115 +468,94 @@
                     <!--end col-->
                 </div>
                 <!--end row-->
-                <!-- end page title end breadcrumb -->
-                {{-- <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <h4 class="card-title">Leads And Vendors</h4>
-                                    </div>
-                                    <!--end col-->
-                                    <div class="col-auto">
-                                        <div class="dropdown"><a href="#"
-                                                class="btn btn-sm btn-outline-light dropdown-toggle"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">This
-                                                Month<i class="las la-angle-down ml-1"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                                    href="#">Today</a> <a class="dropdown-item" href="#">Last Week</a>
-                                                <a class="dropdown-item" href="#">Last Month</a> <a
-                                                    class="dropdown-item" href="#">This Year</a></div>
-                                        </div>
-                                    </div>
-                                    <!--end col-->
-                                </div>
-                                <!--end row-->
-                            </div>
-                            <!--end card-header-->
+
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card report-card">
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-lg-9 border-right">
-                                        <div class="row mb-3">
-                                            <div class="col">
-                                                <div class="media"><i data-feather="phone"
-                                                        class="align-self-center icon-lg text-secondary"></i>
-                                                    <div class="media-body align-self-center ml-2">
-                                                        <h6 class="mt-0 mb-1 font-16">76% Deals Successfull <i
-                                                                class="fas fa-check text-success"></i></h6>
-                                                        <p class="text-muted mb-0">This is a simple hero unit, a simple
-                                                            jumbotron-style component.</p>
-                                                    </div>
-                                                    <!--end media body-->
-                                                </div>
-                                            </div>
-                                            <div class="col-auto"><button type="button"
-                                                    class="btn btn-sm btn-outline-secondary px-3 mt-2">More
-                                                    details</button></div>
-                                        </div>
-                                        <div class="flot-data">
-                                            <div id="CrmDashChart" class="flot-chart"></div>
-                                        </div>
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col">
+                                        <p class="text-dark mb-1 font-weight-semibold">CLIENTS</p>
+                                        <h3 class="my-2">{{ $clients }}</h3>
+                                        <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
+                                                    class="mdi mdi-trending-up"></i></span></p>
                                     </div>
-                                    <!--end col-->
-                                    <div class="col-lg-3"><span class="badge badge-soft-primary float-right"><i
-                                                class="far fa-arrow-alt-circle-up mr-1"></i>30.2%</span>
-                                        <div class="media">
-                                            <div class="icon-info align-self-center"><i
-                                                    class="far fa-smile align-self-center icon-lg icon-dual"></i></div>
-                                            <div class="media-body align-self-center text-truncate ml-2">
-                                                <h3 class="mb-0 font-weight-bold">65k</h3>
-                                                <p class="mb-0 text-muted">Happy Customers</p>
-                                            </div>
-                                            <!--end media-body-->
-                                        </div>
-                                        <div class="apexchart-wrapper mt-3">
-                                            <div id="dash_spark_1" class="chart-gutters"></div>
-                                        </div>
-                                        <hr class="hr-dashed"><span class="badge badge-soft-danger float-right"><i
-                                                class="far fa-arrow-alt-circle-down mr-1"></i>1.1%</span>
-                                        <div class="media">
-                                            <div class="icon-info align-self-center"><i
-                                                    class="far fa-user align-self-center icon-lg icon-dual"></i></div>
-                                            <div class="media-body align-self-center text-truncate ml-2">
-                                                <h3 class="mb-0 font-weight-bold">10k</h3>
-                                                <p class="mb-0 text-muted">New Customers</p>
-                                            </div>
-                                            <!--end media-body-->
-                                        </div>
-                                        <div class="apexchart-wrapper mt-3">
-                                            <div id="dash_spark_2" class="chart-gutters"></div>
-                                        </div>
-                                        <hr class="hr-dashed"><span class="badge badge-soft-primary float-right"><i
-                                                class="far fa-arrow-alt-circle-up mr-1"></i>11.8%</span>
-                                        <div class="media">
-                                            <div class="icon-info align-self-center"><i
-                                                    class="far fa-registered align-self-center icon-lg icon-dual"></i>
-                                            </div>
-                                            <div class="media-body align-self-center text-truncate ml-2">
-                                                <h3 class="mb-0 font-weight-bold">901</h3>
-                                                <p class="mb-0 text-muted">New Register</p>
-                                            </div>
-                                            <!--end media-body-->
-                                        </div>
-                                        <div class="apexchart-wrapper mt-3">
-                                            <div id="dash_spark_3" class="chart-gutters"></div>
-                                        </div>
+                                    <div class="col-auto align-self-center">
+                                        <div class="report-main-icon bg-light-alt"><i data-feather="users"
+                                                class="align-self-center text-muted icon-md"></i></div>
                                     </div>
-                                    <!--end col-->
                                 </div>
-                                <!--end row-->
                             </div>
                             <!--end card-body-->
                         </div>
                         <!--end card-->
                     </div>
                     <!--end col-->
-                </div> --}}
-                <!--end row-->
-
-                <!--end row-->
-
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card report-card">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col">
+                                        <p class="text-dark mb-1 font-weight-semibold">SERVICES</p>
+                                        <h3 class="my-2">{{ $services }}</h3>
+                                        <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
+                                                    class="mdi mdi-trending-up"></i></span></p>
+                                    </div>
+                                    <div class="col-auto align-self-center">
+                                        <div class="report-main-icon bg-light-alt"><i data-feather="clock"
+                                                class="align-self-center text-muted icon-md"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end card-body-->
+                        </div>
+                        <!--end card-->
+                    </div>
+                    <!--end col-->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card report-card">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col">
+                                        <p class="text-dark mb-1 font-weight-semibold">PRODUITS</p>
+                                        <h3 class="my-2">{{ $produits }}</h3>
+                                        <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
+                                                    class="mdi mdi-trending-up"></i></span></p>
+                                    </div>
+                                    <div class="col-auto align-self-center">
+                                        <div class="report-main-icon bg-light-alt"><i data-feather="activity"
+                                                class="align-self-center text-muted icon-md"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end card-body-->
+                        </div>
+                        <!--end card-->
+                    </div>
+                    <!--end col-->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card report-card">
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col">
+                                        <p class="text-dark mb-1 font-weight-semibold">DEMANDE DEVIS</p>
+                                        <h3 class="my-2">{{ $devis }}</h3>
+                                        <p class="mb-0 text-truncate text-muted"><span class="text-success"><i
+                                                    class="mdi mdi-trending-up"></i></span></p>
+                                    </div>
+                                    <div class="col-auto align-self-center">
+                                        <div class="report-main-icon bg-light-alt"><i data-feather="briefcase"
+                                                class="align-self-center text-muted icon-md"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end card-body-->
+                        </div>
+                        <!--end card-->
+                    </div>
+                    <!--end col-->
+                </div>
+                <!-- end page title end breadcrumb -->
                 <!--end row-->
             </div><!-- container -->
             <footer class="footer text-center text-sm-left">&copy; 2023 Allô Service<span

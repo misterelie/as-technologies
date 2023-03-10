@@ -240,7 +240,7 @@
                                     </td>
                                     <th>{{ $produit->nom_produit }}</th>
                                     <th>{{ $produit->prix }}</th>
-                                    <th>{{ $produit->categorie->designation }}</th>
+                                    <th>{{ $produit->categorie->designation ?? ''}}</th>
                                     <th>{{ $produit->marque->designation  ?? '' }}</th>
                                     <th>{!!$produit->resume_produit!!}</th>
                                     <td>

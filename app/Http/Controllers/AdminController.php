@@ -2,33 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Devi;
+use App\Models\User;
 use App\Models\About;
+use App\Models\Client;
+use App\Models\Marque;
+use App\Models\Projet;
 use App\Models\Adresse;
+use App\Models\Contact;
+
+
+use App\Models\Produit;
+use App\Models\Service;
 use App\Models\Banniere;
 use App\Models\Categorie;
-use App\Models\Client;
-use App\Models\Contact;
-use App\Models\Devi;
-use App\Models\Projet;
 use App\Models\Realisation;
 use App\Models\Specificite;
-use App\Models\Service;
-use App\Models\Marque;
-use App\Models\Produit;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
-use SebastianBergmann\CodeCoverage\Report\Xml\Project;
-
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Validated;
+use Illuminate\Http\RedirectResponse;
 use function PHPUnit\Framework\isNull;
+use Illuminate\Support\Facades\Validator;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class AdminController extends Controller
 {
     public function __construct(){
     $this->middleware('auth');
   }
-
     public function dashboard(){
-        return view('admin.index');
+        $services = Service::count();
+        $produits = Produit::count();
+        $clients = Client::count();
+        $devis = Devi::count();
+        return view('admin.index', compact('services', 'produits', 'clients', 'devis'));
     }
 
     // contact message
@@ -50,8 +60,6 @@ class AdminController extends Controller
         $contact->save();
         return redirect()->back()->with('success', 'Félicitations! Votre message a été envoyé avec succès. Notre équipe vous contactera éventuellement. ');
     }
-    
-
     //TRAITEMENT SERVICE
     public function service_create(){
         $services = Service::all();
@@ -61,7 +69,7 @@ class AdminController extends Controller
     public function form_service(){
         return view('admin.service.create');
     }
-    
+
     public function store_service(Request $request){
         //dd($request->all());
         $request->validate([
@@ -70,6 +78,7 @@ class AdminController extends Controller
             "detail" => "nullable",
             'image_service' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+
         $service = new Service();
         $service->libelle = $request->libelle;
         $service->resume = $request->resume;
@@ -113,6 +122,7 @@ class AdminController extends Controller
         $service->save();
         return back()->with("success", "Bravo, vous avez Mis à jour avec succès !");
     }
+
     public function delete(Service $service)
     {
         $service->delete();
@@ -124,13 +134,13 @@ class AdminController extends Controller
         $clients = Client::all();
         return view('admin.client.liste_client', compact('clients'));
     }
+
     public function store_client(Request $request){
         $request->validate([
             "secteur_activity" => "required",
             "temoignage" => "required",
             'logo_client' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             "nom_client" => 'required'
-            
         ]);
         $client = new Client();
         $client->secteur_activity = $request->secteur_activity;
@@ -143,6 +153,7 @@ class AdminController extends Controller
             $imag->move(public_path("ServiceImage"), $imageName);
             $client->logo_client = $imageName;
         }
+
         $client->save();
         return redirect()->back()->with('success', 'Félicitations! client ajouté avec succès. ');
     }
@@ -599,7 +610,7 @@ class AdminController extends Controller
             "nom_produit" => "required",
             "resume_produit" => "required",
             "detail_produit" => "required",
-            "categorie_id" => "required",
+            "categorie_id" => "",
             "marque_id" => "required",
             'photos' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -623,6 +634,57 @@ class AdminController extends Controller
     public function delete_produit(Produit $produit){
         $produit->delete();
         return back()->with("success", "Le produit a été bien supprimé avec succès !");
+    }
+
+    //gestion users
+    public function addusers(){
+        $utilisateurs = User::all();
+        return view('admin.users.add_users', compact('utilisateurs'));
+    }
+    public function save_user(Request $request) {
+        //dd($request->all());
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+            $utilisateur = new User();
+            $utilisateur->name = $request->name;
+            $utilisateur->email = $request->email;
+            $utilisateur->password = Hash::make($request->password);
+            if ($request->hasFile('photo')) {
+                $imag = $request->photo;
+                $imageName = time() . '.' . $imag->Extension();
+                $imag->move(public_path("UsersImage"), $imageName);
+                $utilisateur->photo = $imageName;
+            }
+            $utilisateur->save();
+            return redirect()->back()->with('success', 'Félicitations! Utilisateur crée avec succès !. ');
+    }
+
+    public function update_user(Request $request, User $utilisateur){
+        //dd($request->all());
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => 'required'
+        ]);
+
+        $utilisateur->name = $request->name;
+        $utilisateur->email = $request->email;
+
+        if ($request->hasFile('photo')) {
+            $imag = $request->photo;
+            $imageName = time() . '.' . $imag->Extension();
+            $imag->move(public_path("UsersImage"), $imageName);
+            $utilisateur->photo = $imageName;
+        }
+        $utilisateur->save();
+        return redirect()->back()->with('success', 'Félicitations! Vous mis à jour vos informations avec succès!. ');
+    }
+
+    public function delete_user(User $utilisateur){
+        $utilisateur->delete();
+        return back()->with("success", "L'utilisateur a été bien supprimé avec succès !");
 
     }
 

@@ -447,12 +447,10 @@
     });
 </script>
 
-{{-- <script>
+<script>
     $('#categorie_id').on('change', function () {
         let categorieId = $(this).val();
-
         console.log(categorieId)
-        
         var userURL = "{{url('/getCategories')}}";
         $.ajax({
             url: userURL,
@@ -461,13 +459,12 @@
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-               
                 HTML = $.parseHTML(data);
                 $("#ajaxRoot").html(HTML)
             }
         });
     });
-</script> --}}
+</script>
 
 <script>
   

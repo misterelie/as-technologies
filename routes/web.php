@@ -20,9 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -36,7 +34,7 @@ require __DIR__.'/auth.php';
 Route::get('/', [FrontController::class, 'index'])->name("front.index");
 Route::get('/service', [FrontController::class, 'service'])->name("front.service");
 Route::get('/nos-realisations', [FrontController::class, 'realisation'])->name("front.realisation");
-Route::get('/nos-produits', [FrontController::class, 'products'])->name("front.nos-produits");
+Route::get('/nos-produits', [FrontController::class, 'nos_products'])->name("front.nos-produits");
 Route::get('/front/contact', [FrontController::class, 'contact'])->name("front/contact");
 Route::get('/front/client', [FrontController::class, 'client'])->name("front/client");
 Route::get('/front.presentation', [FrontController::class, 'about'])->name("front.presentation");
@@ -44,12 +42,11 @@ Route::get('/devis', [FrontController::class, 'devis'])->name("front.devis");
 Route::post('/store.devis', [FrontController::class, 'save_devis'])->name("store.devis");
 Route::get('/detail_service/{id}', [FrontController::class, 'detail_service'])->name("front.detail_service");
 Route::get('/detail/produit/{id}', [FrontController::class, 'detail']);
-// Route::get('social-share', [FrontController::class, 'indeboutonsharex']);
+
 
 //* Route AJAX
 Route::get('/getSpecificates', [FrontController::class, 'service_specificite']);
-// Route::get('/getCategories', [FrontController::class, 'produit_categorie']);
-
+Route::get('/getProduit', [FrontController::class, 'viewByCategory']);
 
 
 //SECTION ADMIN
@@ -132,3 +129,8 @@ Route::post('/save/product', [AdminController::class, 'store_products']);
 Route::put('/produit/update/{produit}', [AdminController::class, 'update_product']);
 Route::delete('/delete/produit/{produit}', [AdminController::class, 'delete_produit']);
 
+//users admin
+Route::get('/utilisateurs', [AdminController::class, 'addusers']);
+Route::post('store/users', [AdminController::class, 'save_user']);
+Route::delete('/delete/user/{utilisateur}', [AdminController::class, 'delete_user']);
+Route::put('/utilisateur/update/{utilisateur}', [AdminController::class, 'update_user']);

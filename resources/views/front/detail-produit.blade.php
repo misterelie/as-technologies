@@ -178,13 +178,6 @@ button, input {
                                             <li></li>
                                         </ul> <br>
                                     @endif
-
-                                    {{-- <h6 class="text-muted font-13">Partagez :</h6> --}}
-{{--                                    
-                                    <ul class="list-unstyled pro-features social-btn-sp border-0">
-                                        {!! $shareButtons !!}
-                                    </ul> --}}
-                                  
                                 </div>
                             </div>
                             <!--end col-->

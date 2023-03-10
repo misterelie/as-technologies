@@ -43,29 +43,88 @@
     <div class="left-sidenav">
         <!-- LOGO -->
         <div class="brand active"><a href="{{ url('/') }}" class="logo active"><span><img
-                        src="{{ asset('admin/assets/images/favicon.png') }}" alt="logo-small"
-                        class="logo-sm"></span><span>
-                    <h5 class="mb-2" style="color: #ffff; font-weight: bold">AS TECHNOLOGIES</h5>
-                    <img span></a>
-        </div>
+            src="{{ asset('admin/assets/images/favicon.png') }}" alt="logo-small"
+            class="logo-sm"></span><span>
+        <h5 class="mb-2" style="color: #ffff; font-weight: bold">AS TECHNOLOGIES</h5>
+        <img span></a>
+</div> <br>
         <!--end logo-->
         <div class="menu-content h-100" data-simplebar>
             <ul class="metismenu left-sidenav-menu">
-                {{-- <li class="menu-label mt-0">Main</li> --}}
-                <li><a href="javascript: void(0);"><i data-feather="home"
+                <li><a href="{{ route('dashboard') }}"><i data-feather="home"
+                            class="align-self-center menu-icon"></i><span>Accueil</span><span
+                            class="menu-arrow"></i></span>
+                    </a>
+                </li>
+
+                <li><a href="javascript: void(0);"><i data-feather="grid"
                             class="align-self-center menu-icon"></i><span>Pages</span><span class="menu-arrow"><i
+                                class="mdi mdi-chevron-right"></i></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.service.index') }} "><i
+                                    class="ti-control-record"></i>Réalisations</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.realisation.liste_realisation') }}"><i
+                                    class="ti-control-record"></i>Clients</a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.about.index') }}"><i
+                                    class="ti-control-record"></i>Présentation</a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.devis.demande_devis') }}"><i
+                                    class="ti-control-record"></i>Demande Devis</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li><a href="javascript: void(0);"><i data-feather="grid"
+                            class="align-self-center menu-icon"></i><span>Produits</span><span class="menu-arrow"><i
+                                class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ url('liste/produits') }}"><i
+                                    class="ti-control-record"></i>Gestion
+                                produits</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ url('liste/marques') }}"><i
+                                    class="ti-control-record"></i>Gestion
+                                marques</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ url('liste/categories') }}"><i
+                                    class="ti-control-record"></i>Gestion catégories</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="javascript: void(0);"><i data-feather="grid"
+                            class="align-self-center menu-icon"></i><span>Services</span><span class="menu-arrow"><i
                                 class="mdi mdi-chevron-right"></i></span></a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li class="nav-item"><a class="nav-link"
                                 href="{{ route('admin.service.index') }}"><i
-                                    class="ti-control-record"></i>Services</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                                href="{{ route('admin.realisation.liste_realisation') }}"><i
-                                    class="ti-control-record"></i>Réalisations</a></li>
-                        <li class="nav-item"><a class="nav-link"
-                                href="{{ route('admin.client.liste_client') }}"><i
-                                    class="ti-control-record"></i>Clients</a>
+                                    class="ti-control-record"></i>gestion services</a>
                         </li>
+
+                        <li class="nav-item"><a class="nav-link"
+                                href="{{ route('admin.devis.specificite') }} "><i
+                                    class="ti-control-record"></i>Spécificité service</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li><a href="javascript: void(0);"><i data-feather="grid"
+                            class="align-self-center menu-icon"></i><span>Contacts</span><span class="menu-arrow"><i
+                                class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="nav-second-level" aria-expanded="false">
                         <li class="nav-item"><a class="nav-link"
                                 href="{{ route('admin.contact.index') }}"><i
                                     class="ti-control-record"></i>Nos Contacts</a>
@@ -74,67 +133,35 @@
                                 href="{{ route('admin.messages.all_message') }}"><i
                                     class="ti-control-record"></i>Messages contacts</a>
                         </li>
+                    </ul>
+                </li>
 
+                <li><a href="javascript: void(0);"><i data-feather="lock"
+                            class="align-self-center menu-icon"></i><span>Paramètres</span><span class="menu-arrow"><i
+                                class="mdi mdi-chevron-right"></i></span></a>
+                    <ul class="nav-second-level" aria-expanded="false">
                         <li class="nav-item"><a class="nav-link"
                                 href="{{ route('admin.banniere.add_banniere') }}"><i
-                                    class="ti-control-record"></i>Bannière</a>
+                                    class="ti-control-record"></i>Bannières</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link"
-                                href="{{ route('admin.about.index') }}"><i
-                                    class="ti-control-record"></i>Présentation</a>
-                        </li>
+
                         <li class="nav-item"><a class="nav-link"
                                 href="{{ route('admin.projet.add_project') }}"><i
                                     class="ti-control-record"></i>Projets</a>
                         </li>
 
+                        <li class="nav-item"><a class="nav-link" href="{{ url('utilisateurs') }}"><i
+                                    class="ti-control-record"></i>Gestion utilisateurs</a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="{{ route('profile.edit') }}"><i
+                                    class="ti-control-record"></i>Mon profil</a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link"
-                        href="{{ route('admin.devis.demande_devis') }}"><i
-                            class="ti-control-record"></i>Demande Devis</a>
-                </li>
 
-                <li class="nav-item"><a class="nav-link"
-                        href="{{ route('admin.devis.specificite') }} "><i
-                            class="ti-control-record"></i>Spécificité services</a>
-                </li>
-            </ul>
-            </li>
-
-            <li><a href="javascript: void(0);"><i data-feather="grid"
-                        class="align-self-center menu-icon"></i><span>Produits</span><span class="menu-arrow"><i
-                            class="mdi mdi-chevron-right"></i></span></a>
-                <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{ url('liste/produits') }}"><i class="ti-control-record"></i>Gestion
-                            produits</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('liste/marques') }}">
-                        <i class="ti-control-record"></i>Gestion marques</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('liste/categories') }}"><i class="ti-control-record"></i>Gestion
-                            catégories</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li><a href="javascript: void(0);"><i data-feather="grid"
-                        class="align-self-center menu-icon"></i><span>Paramètres</span><span class="menu-arrow"><i
-                            class="mdi mdi-chevron-right"></i></span></a>
-                {{-- <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="ti-control-record"></i>Gestion
-                            produits</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="ti-control-record"></i>Gestion
-                            marques</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="ti-control-record"></i>Gestion
-                            catégories</a>
-                    </li>
-                </ul> --}}
-            </li>
-
-            <hr class="hr-dashed hr-menu">
-            {{-- <li class="menu-label my-2">Components & Extra</li> --}}
+                <hr class="hr-dashed hr-menu">
+                {{-- <li class="menu-label my-2">Components & Extra</li> --}}
             </ul>
         </div>
     </div><!-- end left-sidenav-->
@@ -145,20 +172,8 @@
             <!-- Navbar -->
             <nav class="navbar-custom">
                 <ul class="list-unstyled topbar-nav float-right mb-0">
-                    <li class="dropdown hide-phone"><a
-                            class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown"
-                            href="#" role="button" aria-haspopup="false" aria-expanded="false"><i data-feather="search"
-                                class="topbar-icon"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-lg p-0">
-                            <!-- Top Search Bar -->
-                            <div class="app-search-topbar">
-                                <form action="#" method="get"><input type="search" name="search"
-                                        class="from-control top-search mb-0" placeholder="Type text..."> <button
-                                        type="submit"><i class="ti-search"></i></button></form>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="dropdown notification-list"><a
+                    
+                    {{-- <li class="dropdown notification-list"><a
                             class="nav-link dropdown-toggle arrow-none waves-light waves-effect" data-toggle="dropdown"
                             href="#" role="button" aria-haspopup="false" aria-expanded="false"><i data-feather="bell"
                                 class="align-self-center topbar-icon"></i> <span
@@ -245,19 +260,32 @@
                                 class="dropdown-item text-center text-primary">View all <i
                                     class="fi-arrow-right"></i></a>
                         </div>
-                    </li>
+                    </li> --}}
                     <li class="dropdown"><a class="nav-link dropdown-toggle waves-effect waves-light nav-user"
                             data-toggle="dropdown" href="#" role="button" aria-haspopup="false"
                             aria-expanded="false"><span class="ml-1 nav-user-name hidden-sm">
 
-                                <!-- AFFICHER PHOTO DE L'UTILSATEUR QUAND IL A  CHOISI -->
-                                {{ Auth::user()->name }}</span> <img
-                                src="{{ asset('admin/assets/images/users/user-5.jpg') }}"
-                                alt="profile-user" class="rounded-circle"></a>
+                                <!-- Recuperer le nom de l'utilisateur connecté -->
+                                {{ Auth::user()->name }}</span>
+
+                            <!-- AFFICHER PHOTO DE L'UTILSATEUR QUAND IL A  CHOISI -->
+                            @if(Auth::user()->photo != null)
+                                <img src="{{ asset('UsersImage/'.Auth::user()->photo) }}"
+                                    alt="profile-user" class="rounded-circle">
+                            @else
+                                <!--SINON AFFICHER L'IMAGE PAR DEFAUT -->
+                                <img src="{{ asset('admin/assets/images/users/user-5.jpg') }}"
+                                    alt="profile-user" class="rounded-circle">
+                        </a>
+                        @endif
+
+
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
                                 href="{{ route('profile.edit') }}"><i data-feather="user"
                                     class="align-self-center icon-xs icon-dual mr-1"></i>
-                                Profile</a>
+                                Profil</a>
+
+
                             {{-- <a class="dropdown-item" href=""><i data-feather="settings"
                                     class="align-self-center icon-xs icon-dual mr-1"></i> Settings
                                 </a> --}}

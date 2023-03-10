@@ -30,7 +30,7 @@ class FrontController extends Controller
         $projet = Projet::OrderBy('titre')->first();
         return view('front.index', compact('services', 'realisations', 'adresses', 'about', 'projet', 'banniere'));
     }
-    
+
     public function service(){
         $services = Service::all();
         $adresses = Adresse::all();
@@ -104,7 +104,7 @@ class FrontController extends Controller
         $devis->specifite_service = $request->specifite_service;
         $devis->delai_livraison = $request->delai_livraison;
         $devis->description_detaillee = $request->description_detaillee;
-        $devis->service_id = $request->service_id;  
+        $devis->service_id = $request->service_id;
         if ($request->hasFile('fichier_devis')) {
             $filename = $request->fichier_devis;
             //dd($filename);
@@ -123,7 +123,7 @@ class FrontController extends Controller
         $html = null;
         if(!is_null($service)){
             $specificites = $service->specificites;
-            
+
             if(!is_null($specificites) && $specificites->count()){
             $html .= '<select class="form-control" name="specifite_service" id="specifite_service">';
                 foreach ($specificites as $row) {
@@ -139,12 +139,22 @@ class FrontController extends Controller
         return json_encode($html);
     }
 
-    public function products(){
+    public function nos_products(Request $request){
+        //dd($request->all());
         $adresses = Adresse::all();
         $produits = Produit::all();
         $services = Service::all();
         $categories = Categorie::all();
         $banniere = Banniere::OrderBy('imagebanniere')->first();
+
+        if(!is_null($request->categorie_id)){
+            $produits = Produit::where(['categorie_id' => $request->categorie_id]);
+
+            if(!is_null($request->marque_id)){
+                $produits = Produit::where(["marque_id" => $request->marque_id]);
+            }
+            $produits = $produits->latest()->get();
+        }
         $marques = Marque::all();
         return view('front.nos-produits', compact('adresses', 'services', 'banniere', 'categories', 'marques', 'produits'));
     }
@@ -157,5 +167,6 @@ class FrontController extends Controller
         $produit = Produit::find($id);
         return view('front.detail-produit', compact('banniere', 'adresses', 'services','produit'));
     }
+
 
 }

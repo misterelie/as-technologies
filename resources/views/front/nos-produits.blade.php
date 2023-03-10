@@ -116,6 +116,7 @@ h4 {
 
 }
 </style>
+
 <section>
     <div class="page-content">
         <div class="container-fluid">
@@ -127,12 +128,12 @@ h4 {
                             <div class="col">
                                 <h4 class="page-title text-center">Filtrer par critères</h4>
                                 <ol class="breadcrumb">
-                                    <form action="" action="">
+                                    <form action="" method="GET" id="filterForm">
                                         <div class="row">
                                             <div class="col-sm-4 mb-2">
                                                 {{ (old('categorie')) }}
                                                 <select class="form-select form-control" name="categorie_id"
-                                                    id="categorie_id" required>
+                                                    id="categorie_id" >
                                                     <option value="Choisir la catégorie"> Choisir la Catégorie
                                                     </option>
                                                     @if(!is_null($categories))
@@ -149,7 +150,7 @@ h4 {
                                             <div class="col-sm-4 mb-2">
                                                 {{ (old('marque')) }}
                                                 <select class="form-select form-control" name="marque_id"
-                                                    id="marque_id" required>
+                                                    id="marque_id" >
                                                     <option value="Choisir la catégorie"> Choisir la marque
                                                     </option>
                                                     @if(!is_null($marques))
