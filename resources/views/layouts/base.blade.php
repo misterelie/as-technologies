@@ -139,17 +139,14 @@
             color: #fff;
             font-size: 14px;
         }
-
         #footer .footer-top {
             background: #0c1817;
             border-bottom: 1px solid #18302c;
             padding: 60px 0 30px 0;
         }
-
         #footer .footer-top .footer-info {
             margin-bottom: 30px;
         }
-
         #footer .footer-top .footer-info h3 {
             font-size: 24px;
             margin: 0 0 20px 0;
@@ -157,7 +154,6 @@
             line-height: 1;
             font-weight: 700;
         }
-
         #footer .footer-top .footer-info p {
             font-size: 14px;
             line-height: 24px;
@@ -165,16 +161,13 @@
             font-family: "Raleway", sans-serif;
             color: #fff;
         }
-
         b,
         strong {
             font-weight: bolder;
         }
-
         .mt-3 {
             margin-top: 1rem !important;
         }
-
         #footer .footer-top .social-links a {
             font-size: 18px;
             display: inline-block;
@@ -189,7 +182,6 @@
             height: 36px;
             transition: 0.3s;
         }
-
         .bx {
             font-family: boxicons !important;
             font-weight: 400;
@@ -203,21 +195,17 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
         #footer .footer-top .footer-links {
             margin-bottom: 30px;
         }
-
         #footer .footer-top .footer-links ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-
         #footer .footer-top .footer-links ul li:first-child {
             padding-top: 0;
         }
-
         #footer .footer-top .footer-links ul li {
             padding: 10px 0;
             display: flex;
@@ -230,7 +218,6 @@
             font-size: 18px;
             line-height: 1;
         }
-
         #footer .footer-top .footer-links {
             margin-bottom: 30px;
         }
@@ -262,13 +249,11 @@
             position: relative;
             border-radius: 4px 0 0 4px;
         }
-
         #footer .footer-top .footer-newsletter form input[type=email] {
             border: 0;
             padding: 4px;
             width: calc(100% - 110px);
         }
-
         #footer .footer-top .footer-newsletter form input[type=submit] {
             position: absolute;
             top: 0;
@@ -283,19 +268,16 @@
             transition: 0.3s;
             border-radius: 0 4px 4px 0;
         }
-
         #footer .footer-top .footer-links ul a {
             color: #fff;
             transition: 0.3s;
             display: inline-block;
             line-height: 1;
         }
-
         p {
             margin-top: 0;
             margin-bottom: 1rem;
         }
-
         #footer .footer-top .footer-info h3 {
             font-size: 24px;
             margin: 0 0 20px 0;
@@ -332,6 +314,7 @@
                             @endforeach
                         @endif
                     </div>
+
                     <div class="col-lg-2 col-md-6 footer-links">
                         <h4>Liens Utiles</h4>
                         <ul>
@@ -380,9 +363,8 @@
 
                     <div class="col-lg-4 col-md-6 footer-newsletter">
                         <h4>Notre Newsletter</h4>
-                        <p>Enregistrez-vous et restez informés par mail de toutes nos offres promotionnelles!</p>
-                        <form action="" method="post"> <input type="email" name="email"><input type="submit"
-                                value="Souscrire"></form>
+                        <p>Enregistrez-vous et restez informés par mail de toutes nos offres  promotionnelles!</p>
+                        <form action="" method="post"> <input type="email" name="email"><input type="submit" value="Souscrire"></form>
                     </div>
                 </div>
             </div>

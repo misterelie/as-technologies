@@ -11,11 +11,9 @@
         background: #3601c6;
         box-shadow: 0px 5px 25px rgb(65 84 241 / 30%);
     }
-
     span:hover{
         color: #fff;
     }
-   
     .btn-read-more i {
         margin-left: 5px;
         font-size: 15px;
@@ -24,6 +22,7 @@
         color: #fff;
     }
 </style>
+
 <div id="services" class="services-area section-padding">
     <div class="container">
         <div class="row">

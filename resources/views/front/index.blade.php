@@ -367,6 +367,7 @@
                     height: 50px;
                 }
             </style>
+
             <div class="row">
                 <div class="col-md-12 col-lg-12">
                     <div class="top-contact">
@@ -374,7 +375,8 @@
                             @foreach($adresses as $adresse)
                                 <div class="row">
                                     <div class="col-sm-4 col-md-4">
-                                        <div class="top-contact-text wow fadeInDown" data-wow-delay="0.2s">
+                                        <div class="top-contact-text wow fadeInDown" 
+                                        data-wow-delay="0.2s">
                                             <div class="contact-icon">
                                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                                             </div>
@@ -386,7 +388,8 @@
                                         </div>
                                     </div>
                                     <div class="col-sm-4 col-md-4">
-                                        <div class="top-contact-text wow fadeInDown" data-wow-delay="0.4s">
+                                        <div class="top-contact-text wow fadeInDown" 
+                                        data-wow-delay="0.4s">
                                             <div class="contact-icon">
                                                 <i class="fa fa-phone" aria-hidden="true"></i>
                                             </div>
@@ -521,11 +524,9 @@
             font-size: 18px;
             line-height: 1;
         }
-
         #footer .footer-top .footer-links {
             margin-bottom: 30px;
         }
-
         #footer .footer-top h4 {
             font-size: 16px;
             font-weight: 600;
@@ -533,7 +534,6 @@
             position: relative;
             padding-bottom: 12px;
         }
-
         #footer .copyright {
             text-align: center;
             padding-top: 30px;
@@ -581,12 +581,10 @@
             display: inline-block;
             line-height: 1;
         }
-
         p {
             margin-top: 0;
             margin-bottom: 1rem;
         }
-
         #footer .footer-top .footer-info h3 {
             font-size: 24px;
             margin: 0 0 20px 0;
@@ -665,8 +663,7 @@
                     <div class="col-lg-4 col-md-6 footer-newsletter">
                         <h4>Notre Newsletter</h4>
                         <p>Enregistrez-vous et restez informés par mail de toutes nos offres promotionnelles!</p>
-                        <form action="" method="post"> <input type="email" name="email"><input type="submit"
-                                value="Souscrire"></form>
+                        <form action="" method="post"> <input type="email" name="email"><input type="submit" value="Souscrire"></form>
                     </div>
                 </div>
             </div>
